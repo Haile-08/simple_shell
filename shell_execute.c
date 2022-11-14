@@ -8,10 +8,11 @@
  * Return: status
  */
 
+extern char **environ;
+
 int shell_execute(char **args, char *av)
 {
 	char prompt[20] = "/usr/bin/";
-	char *envp[] = {NULL};
 	int status;
 	pid_t cpid;
 
@@ -19,7 +20,7 @@ int shell_execute(char **args, char *av)
 	_strncat(prompt, args[0], _strlen(args[0]));
 	if (cpid == 0)
 	{
-		if (execve(prompt, args, envp) == -1)
+		if (execve(prompt, args, environ) == -1)
 		{
 			perror(av);
 			exit(99);
