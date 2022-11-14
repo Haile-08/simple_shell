@@ -12,7 +12,7 @@ extern char **environ;
 
 int shell_execute(char **args, char *av)
 {
-	char prompt[20] = "/usr/bin/";
+	char prompt[20] = "/";
 	int status;
 	pid_t cpid;
 
