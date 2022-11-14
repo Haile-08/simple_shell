@@ -16,7 +16,7 @@ int shell_execute(char **args, char *av)
 	pid_t cpid;
 
 	cpid = fork();
-	_strncat(prompt, _strlen(args[0]), n);
+	_strncat(prompt, args[0], _strlen(args[0]));
 	if (cpid == 0)
 	{
 		if (execve(prompt, args, envp) == -1)
@@ -27,7 +27,7 @@ int shell_execute(char **args, char *av)
 	}
 	else if (cpid == -1)
 	{
-		perror(av);
+		exit(99);
 	}
 	else
 	{

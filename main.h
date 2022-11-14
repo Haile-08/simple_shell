@@ -11,7 +11,7 @@
 
 char *shell_read_line(char *av);
 char **shell_parser(char *line, char *av);
-int shell_execute(char *const args, char *av);
+int shell_execute(char **args, char *av);
 
 /* custome function */
 

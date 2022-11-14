@@ -26,9 +26,10 @@ int main(__attribute__((unused))int ac, char *av[])
 		}
 		line = shell_read_line(av[0]);
 		args = shell_parser(line, av[0]);
-		if (args != NULL)
-			status = shell_execute(line, av[0]);
+		if (args[0] != NULL)
+			status = shell_execute(args, av[0]);
 		free(line);
 		free(args);
 	}
+	return (0);
 }

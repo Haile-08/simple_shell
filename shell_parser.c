@@ -8,7 +8,7 @@
  * Return: pointer to the array
  */
 
-char **shell_parser(char *line, char *av)
+char **shell_parser(char *line, __attribute__((unused))char *av)
 {
 	int i = 0,size = 20;
 	char **tokens;
@@ -18,7 +18,6 @@ char **shell_parser(char *line, char *av)
 	tokens = malloc(size * sizeof(char *));
 	if (tokens == NULL)
 	{
-		perror(av);
 		exit(99);
 	}
 	tok = strtok(line, dilm);
@@ -32,7 +31,6 @@ char **shell_parser(char *line, char *av)
 			tokens = realloc(tokens, size * sizeof(char *));
 			if (tokens == NULL)
 			{
-				perror(av);
 				exit(99);
 			}
 		}
