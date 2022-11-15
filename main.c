@@ -2,34 +2,25 @@
 
 /**
  * main - Entry point
- * Description: the shell entry point
- * @ac: number of arguments
- * @av: array of the arguments
+ * @ac: the number of args
+ * @av: array of args
  *
  * Return: 0 on success
  */
 
 int main(__attribute__((unused))int ac, char *av[])
 {
-	char *line;
-	char **args;
-	int status = 1;
-	char ch[9] = "#cisfun$ ";
-
-	while (status)
+	while (1)
 	{
-		int i = 0;
-		while (ch[i] != '\0')
-		{
-			_putchar(ch[i]);
-			i++;
-		}
-		line = shell_read_line(av[0]);
-		args = shell_parser(line, av[0]);
-		if (args[0] != NULL)
-			status = shell_execute(args, av[0]);
+		char *line;
+		char *tok;
+
+		line = get_line();
+		tok = tokenize(line);
+		if (tok != NULL)
+			execute(tok);
 		free(line);
-		free(args);
+		free(tok);
 	}
 	return (0);
 }
