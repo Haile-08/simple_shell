@@ -11,15 +11,10 @@ char *get_line(void)
 {
 	char *line = NULL;
 	size_t len = 23;
-	char *prompt = "#cisfun$ ";
 
-	write(1, prompt, 9);
 	while ((getline(&line, &len, stdin)) == -1)
 	{
 		exit(99);
 	}
-	fflush(stdin);
-
-
 	return (line);
 }

@@ -14,12 +14,14 @@ int main(__attribute__((unused))int ac, char *av[])
 	{
 		char *line;
 		char *tok;
+		char *prompt = "#cisfun$ ";
 
+		write(1, prompt, 9);
 		line = get_line();
+		fflush(stdin);
 		tok = tokenize(line);
 		if (tok != NULL)
-			execute(tok);
-		free(line);
+			execute(tok, av[0]);
 		free(tok);
 	}
 	return (0);

@@ -10,5 +10,7 @@
 #include <stdlib.h>
 
 char *get_line(void);
+char *tokenize(char *line);
+void execute(char *tok, char *av);
 
 #endif
